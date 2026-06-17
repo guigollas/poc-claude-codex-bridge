@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Codex Proxy Integration for Claude CLI
+# Routes Anthropic API calls through local Codex proxy
+
+export ANTHROPIC_BASE_URL="http://localhost:4100"
+export ANTHROPIC_AUTH_TOKEN="sk-local-codex"
+
+unset ANTHROPIC_API_KEY
+
+export ANTHROPIC_MODEL="sonnet"
+
+# Haiku model mapping
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="haiku"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL_NAME="GPT-5.4 mini via Codex"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL_DESCRIPTION="Fast/high-volume Codex model through local proxy"
+
+# Sonnet model mapping
+export ANTHROPIC_DEFAULT_SONNET_MODEL="sonnet"
+export ANTHROPIC_DEFAULT_SONNET_MODEL_NAME="GPT-5.4 via Codex"
+export ANTHROPIC_DEFAULT_SONNET_MODEL_DESCRIPTION="Balanced Codex model through local proxy"
+
+# Fable model mapping
+export ANTHROPIC_DEFAULT_FABLE_MODEL="fable"
+export ANTHROPIC_DEFAULT_FABLE_MODEL_NAME="GPT-5.4 via Codex"
+export ANTHROPIC_DEFAULT_FABLE_MODEL_DESCRIPTION="General/creative Codex model through local proxy"
+
+# Opus model mapping
+export ANTHROPIC_DEFAULT_OPUS_MODEL="opus"
+export ANTHROPIC_DEFAULT_OPUS_MODEL_NAME="GPT-5.5 via Codex"
+export ANTHROPIC_DEFAULT_OPUS_MODEL_DESCRIPTION="Strongest Codex model through local proxy"
+
+# Custom coding model
+export ANTHROPIC_CUSTOM_MODEL_OPTION="codex-coding"
+export ANTHROPIC_CUSTOM_MODEL_OPTION_NAME="GPT-5.3-Codex via Codex"
+export ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION="Agentic coding-specialized Codex model through local proxy"
+export ANTHROPIC_CUSTOM_MODEL_OPTION_SUPPORTED_CAPABILITIES=""
+
+exec claude "$@"
