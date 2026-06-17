@@ -2,6 +2,10 @@
 
 Bridge utilities for integrating Claude CLI with Codex proxy infrastructure.
 
+# WARNING
+
+It is currently slow for models other than gpt-5.5 (which is the highest consuming model).
+
 ## Overview
 
 This repository contains wrapper scripts that enable seamless integration between Claude CLI and a local Codex proxy server. The proxy allows routing Anthropic API calls through Codex's OpenAI-compatible endpoint.
